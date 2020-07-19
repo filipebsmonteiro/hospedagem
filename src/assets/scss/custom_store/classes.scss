@@ -1,0 +1,47 @@
+@import './variables';
+
+.bg-success-light{
+  background-color: rgba(45, 206, 137, 0.27);
+  border-left: 10px rgba(45, 206, 137, 1) solid;
+}
+
+.bg-yellow-light{
+  background-color: rgba(255, 214, 0, 0.27);
+  border-left: 10px rgba(255, 214, 0, 1) solid;
+}
+
+.bg-info-light{
+  background-color: rgba(17, 205, 239, 0.27);
+  border-left: 10px rgba(17, 205, 239, 1) solid;
+}
+
+
+
+@mixin font($font-family, $font-file, $extension) {
+  @font-face {
+    font-family: $font-family;
+
+    @if $extension == 'eot' {
+      src: url($font-file +'.eot');
+      src: url($font-file + '.eot?#iefix') format('embedded-opentype');
+    }
+
+    @if $extension == 'woff' {
+      src: url($font-file + '.woff') format('woff');
+    }
+
+    @if $extension == 'ttf' {
+      src: url($font-file + '.ttf') format('truetype');
+    }
+
+    @if $extension == 'svg' {
+      src: url($font-file + '.svg#aller') format('svg');
+    }
+
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@include font($primary-font-custom, '~@/assets/vendor/nucleo/fonts/'+$primary-font-custom, $primary-font-extension);
+@include font($secondary-font-custom, '~@/assets/vendor/nucleo/fonts/'+$secondary-font-custom, $secondary-font-extension);
